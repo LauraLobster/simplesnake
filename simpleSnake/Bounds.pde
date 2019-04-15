@@ -1,5 +1,5 @@
 class Border implements Observer{
-  Vector2D borders = new Vector2D(400,400);
+  Vector2D borders = new Vector2D(1000,1000);
   public void renderBorder()
   {
     noFill();
@@ -13,7 +13,7 @@ class Border implements Observer{
     if(_hitsMe(snakePosition))
       println("GameOver");
      else 
-      println("Benachrichtigung erhalten");
+      println(snakePosition.x(),snakePosition.y());
   }
   
   private boolean _hitsMe(Vector2D other)
