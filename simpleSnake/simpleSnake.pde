@@ -1,31 +1,28 @@
-
-
 Border GameBorder = new Border();
 Snake snake = new Snake();
+VisualSnake visualSnake = new VisualSnake();
 Command _c; 
 
 void setup()
 {
-  // This creates the canvas with the background being a dark grey
   size(1000,1000);
-  background(70); 
   frameRate(10);
   snake.subscripeObserver(GameBorder);
+  snake.subscripeObserver(visualSnake);
 }
 
 void draw()
 {
+  clear();
+  background(70); 
   GameBorder.renderBorder();
   snake.notifyObservers();
   snake.move();
 }
 
-
-
-
-
 void keyTyped() {
 
+  // Controller Klasse irgendwann machen 
     if (key == 'w') {
       println("w");
       _c = new CommandUP(snake);
