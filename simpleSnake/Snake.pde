@@ -16,5 +16,6 @@ class Snake extends SnakeMovement {
       currentObserver.onNotify(currentPosition);
     }
   }
+  
 
 }

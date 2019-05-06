@@ -1,6 +1,7 @@
 Border GameBorder = new Border();
 Snake snake = new Snake();
 VisualSnake visualSnake = new VisualSnake();
+Body body = new Body();
 Command _c; 
 
 void setup()
@@ -9,6 +10,7 @@ void setup()
   frameRate(10);
   snake.subscripeObserver(GameBorder);
   snake.subscripeObserver(visualSnake);
+  snake.subscripeObserver(body);
 }
 
 void draw()
@@ -18,6 +20,7 @@ void draw()
   GameBorder.renderBorder();
   snake.notifyObservers();
   snake.move();
+  body.renderMe();
 }
 
 void keyTyped() {

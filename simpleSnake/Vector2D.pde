@@ -48,6 +48,12 @@ class Vector2D {
     float B = sqrt(sq(X)+sq(Y));
     return B;
   }
+  
+  boolean equals(Vector2D other){
+    if(other.x() == this.x() && other.y() == this.y())
+    return true;
+    else return false;
+  }
 
   void set(float x, float y) {
     _x = x;
