@@ -1,33 +1,36 @@
 enum _direction {up, left, right,down, none}
 
-class SnakeMovement{
-   
+class SnakeMovement extends ListenerVector2D{
+  
+  Vector2D currentPosition = toNotify = new Vector2D(500, 500); 
   _direction currentDirection = _direction.none;
-  Vector2D currentPosition = new Vector2D(500, 500);
+
   
   void changePosition(Vector2D direction)
   {
     currentPosition = currentPosition.add(direction);
+    //dem Listener die neuePosition sagen
+    toNotify(currentPosition);
   }
   
  //Transitions
  void turnUP() {
-    if (currentDirection != _direction.up)
+    if (currentDirection != _direction.down)
       currentDirection = _direction.up;
     }
   
   void turnDOWN() {
-    if (currentDirection != _direction.down)
+    if (currentDirection != _direction.up)
       currentDirection = _direction.down;
   }
 
   void turnLEFT() {
-    if (currentDirection != _direction.left)
+    if (currentDirection != _direction.right)
       currentDirection = _direction.left;
   }
 
   void turnRIGHT() {
-    if (currentDirection != _direction.right)
+    if (currentDirection != _direction.left)
       currentDirection = _direction.right;
   }
   
@@ -37,23 +40,23 @@ class SnakeMovement{
      switch (currentDirection) {
        case up:
            Vector2D up = new Vector2D(0,-10);
-           snake.changePosition(up);
+           changePosition(up);
            break;
        case down:
            Vector2D down = new Vector2D(0,10);
-           snake.changePosition(down);
+           changePosition(down);
            break;
        case left:
            Vector2D left = new Vector2D(-10,0);
-           snake.changePosition(left);
+          changePosition(left);
            break;
        case right: 
            Vector2D right = new Vector2D(10,0);
-           snake.changePosition(right);
+           changePosition(right);
            break;
        case none:
            Vector2D stop = new Vector2D(0,0);
-           snake.changePosition(stop);
+           changePosition(stop);
            break;
        default: 
            // do nothing 

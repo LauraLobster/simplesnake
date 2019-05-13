@@ -20,8 +20,7 @@ class Border implements Observer{
   
   private boolean _hitsMe(Vector2D other)
   {
-       if(other.x() > borders.x() || other.x() < 0 || other.y() > borders.y() || other.y() < 0)
-       return true;
-       else return false;
+       return (other.x() > borders.x() || other.x() < 0 || other.y() > borders.y() || other.y() < 0);
+
   }
 }

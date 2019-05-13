@@ -5,7 +5,7 @@ class Vector2DQueue{
   private Vector2D[] _queue;
   
   Vector2DQueue(int capacity){
-    _front = _rear = 0;
+    _front = _rear = 0; //index
     _capacity = capacity;
     _queue = new Vector2D[_capacity];
   }
@@ -13,12 +13,11 @@ class Vector2DQueue{
   //add Element
    void addVector(Vector2D insertMe) 
     { 
-        // check queue is full or not 
-        if (_capacity == _rear) { 
+        if (isFull()) { 
+          // TO DO: schmeiße das letzte element raus ? Oder das in einer neuen Methode?
             System.out.printf("Queue is full"); 
-            //return; 
+            return; 
         } 
-  
         // insert element at the rear 
         else { 
             _queue[_rear] = insertMe; 
@@ -29,29 +28,32 @@ class Vector2DQueue{
     
     //remove last element
      void removeVector() 
-    { 
-        // if queue is empty 
-        if (_front == _rear) { 
+    {  
+        if (isEmpty()) { 
             println("Queue is empty"); 
-            //return; 
+            return; 
         } 
   
-        // shift all the elements from index 2 till rear 
-        // to the right by one 
+        // shift all the elements till rear 
         else { 
             for (int i = 0; i < _rear - 1; i++) { 
-                _queue[i] = _queue[i + 1]; 
+                _queue[i] = _queue[i + 1];    // Array statt ArrayList, weil wir nicht wissen, wie wir ein Element mit einem bestimmten Index in der ArrayList löschen
             } 
   
-            // store 0 at rear indicating there's no element 
+            // store null at rear indicating there's no element 
             if (_rear < _capacity) 
                 _queue[_rear] = null; 
   
             // decrement rear 
             _rear--; 
         } 
-      //  return; 
+        return; 
     } 
+    
+    void addCapacity(){
+      ++_capacity;
+      _queue = (Vector2D[]) expand(_queue,_capacity);
+    }
     
     Vector2D[] toArray(){
       return _queue;

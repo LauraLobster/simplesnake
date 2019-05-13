@@ -5,26 +5,20 @@ class Command {
 }
 
 class MakerCommand extends Command {    // Vererbte Klasse MakerCommand der Basisklasse Command
-  Snake _commandThis;
+  SnakeMovement _commandThis;
   //Buttons _b;
 
 
-  MakerCommand(Snake commandThis) {    //Konstruktor
+  MakerCommand(SnakeMovement commandThis) {    //Konstruktor
     super();
     _commandThis = commandThis;
   }
-
-/*  MakerCommand(Buttons b) {    // Konstruktor
-    super();
-    _b = b;
-  }
-  */
 }
 
 
 class CommandUP extends MakerCommand {    // Vererbte Klasse CommandUP der Oberklasse MakerCommand
 
-  CommandUP(Snake commandThis) {
+  CommandUP(SnakeMovement commandThis) {
     super(commandThis);
   }
 
@@ -36,7 +30,7 @@ class CommandUP extends MakerCommand {    // Vererbte Klasse CommandUP der Oberk
 
 class CommandDOWN extends MakerCommand {   // Vererbte Klasse CommandDOWN der Oberklasse MakerCommand
 
-  CommandDOWN(Snake commandThis) {
+  CommandDOWN(SnakeMovement commandThis) {
     super(commandThis);
   }
 
@@ -48,7 +42,7 @@ class CommandDOWN extends MakerCommand {   // Vererbte Klasse CommandDOWN der Ob
 
 class CommandLEFT extends MakerCommand {     // Vererbte Klasse CommandLEFT der Oberklasse MakerCommand
 
-  CommandLEFT(Snake commandThis) {
+  CommandLEFT(SnakeMovement commandThis) {
     super(commandThis);
   }
 
@@ -59,7 +53,7 @@ class CommandLEFT extends MakerCommand {     // Vererbte Klasse CommandLEFT der 
 
 class CommandRIGHT extends MakerCommand {    // Vererbte Klasse CommandRIGHT der Oberklasse MakerCommand
 
-  CommandRIGHT(Snake commandThis) {
+  CommandRIGHT(SnakeMovement commandThis) {
     super(commandThis);
   }
 

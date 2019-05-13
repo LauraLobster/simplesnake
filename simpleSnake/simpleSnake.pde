@@ -1,16 +1,16 @@
-Border GameBorder = new Border();
-Snake snake = new Snake();
-VisualSnake visualSnake = new VisualSnake();
-Body body = new Body();
-Command _c; 
-
+ //Globale Objekte
+  Border GameBorder;
+  Snake snake;
+  SnakeMovement snakeMovement;
+  Command _c; 
+  
 void setup()
 {
+  build();
   size(1000,1000);
   frameRate(10);
-  snake.subscripeObserver(GameBorder);
-  snake.subscripeObserver(visualSnake);
-  snake.subscripeObserver(body);
+  snakeMovement.subscripeObserver(GameBorder);
+  snakeMovement.subscripeObserver(snake);
 }
 
 void draw()
@@ -18,9 +18,9 @@ void draw()
   clear();
   background(70); 
   GameBorder.renderBorder();
-  snake.notifyObservers();
-  snake.move();
-  body.renderMe();
+  snakeMovement.notifyObservers();
+  snakeMovement.move();
+  snake.renderMe();
 }
 
 void keyTyped() {
@@ -28,21 +28,34 @@ void keyTyped() {
   // Controller Klasse irgendwann machen 
     if (key == 'w') {
       println("w");
-      _c = new CommandUP(snake);
+      _c = new CommandUP(snakeMovement);
     }
     if (key == 's'){
        println("s");
-      _c = new CommandDOWN(snake);
+      _c = new CommandDOWN(snakeMovement);
       }
     if (key == 'a'){
        println("a");
-      _c = new CommandLEFT(snake);
+      _c = new CommandLEFT(snakeMovement);
     }
     if (key == 'd'){
        println("d");
-      _c = new CommandRIGHT(snake);
+      _c = new CommandRIGHT(snakeMovement);
     }
     _c.execute();
+    
+    
+    //Temporär Futter essen auf e
+    if(key == 'e'){
+      snake.eat();
+    }
+}
+
+void build(){
+  GameBorder = new Border();
+  snake = new Snake();
+  snakeMovement = new SnakeMovement();
+
 }
 
  
