@@ -9,8 +9,8 @@ void setup()
   build();
   size(1000, 700);
   frameRate(10);
-  snakeMovement.subscripeObserver(GameBorder);
-  snakeMovement.subscripeObserver(snake);
+  snakeMovement.subscribeObserver(GameBorder);
+  snakeMovement.subscribeObserver(snake);
 }
 
 void draw()
@@ -18,9 +18,9 @@ void draw()
   clear();
   background(70); 
   GameBorder.renderBorder();
+  snake.renderMe();
   snakeMovement.notifyObservers();
   snakeMovement.move();
-  snake.renderMe();
 }
 
 void keyTyped() {

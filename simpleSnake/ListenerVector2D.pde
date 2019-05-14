@@ -4,7 +4,7 @@
   Vector2D toNotify;
   ArrayList<Observer> myObservers = new ArrayList<Observer>();
   
-  public void subscripeObserver(Observer newObserver){
+  public void subscribeObserver(Observer newObserver){
     myObservers.add(newObserver);
   }
 
