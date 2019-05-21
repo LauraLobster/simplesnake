@@ -23,7 +23,7 @@ class CommandUP extends MakerCommand {    // Vererbte Klasse CommandUP der Oberk
   }
 
   void execute() {
-    _commandThis.turnUP();
+    _commandThis.turn("up");
   }
 }
 
@@ -35,7 +35,7 @@ class CommandDOWN extends MakerCommand {   // Vererbte Klasse CommandDOWN der Ob
   }
 
   void execute() {
-    _commandThis.turnDOWN();
+    _commandThis.turn("down");
   }
 }
 
@@ -47,7 +47,7 @@ class CommandLEFT extends MakerCommand {     // Vererbte Klasse CommandLEFT der 
   }
 
   void execute() {
-    _commandThis.turnLEFT();
+    _commandThis.turn("left");
   }
 }
 
@@ -58,6 +58,6 @@ class CommandRIGHT extends MakerCommand {    // Vererbte Klasse CommandRIGHT der
   }
 
   void execute() {
-    _commandThis.turnRIGHT();
+    _commandThis.turn("right");
   }
 }
