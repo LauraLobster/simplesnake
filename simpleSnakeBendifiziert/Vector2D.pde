@@ -37,7 +37,7 @@ class Vector2D {
     float wy = this._y*sc;
 
     return new Vector2D(wx, wy);
-  }
+}
 
   float scpr(Vector2D another) {     //scalarprodukt
     float scpr = this._x*another._x+this._y*another._y;

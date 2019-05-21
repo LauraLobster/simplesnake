@@ -21,5 +21,9 @@ class Directions{
     Vector2D newDirection = getDirection(direction);
     _directions.put("current", newDirection);
     }
+    
+    boolean isNotOppositeToCurrent(String direction){
+      return(this.getDirection("current").scpr(this.getDirection(direction)) == 0);
+    }
   
 }
